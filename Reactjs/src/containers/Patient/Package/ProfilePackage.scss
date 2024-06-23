@@ -1,0 +1,36 @@
+.profile-package-container {
+  .intro-package {
+    display: flex;
+    justify-content: space-between;
+
+    .content-left {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+    }
+
+    .content-right {
+      width: calc(100% - 220px); /* subtracting some padding */
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .up {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .down {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .price {
+    margin-top: 20px;
+  }
+}
