@@ -1,0 +1,186 @@
+// // .manage-schedule-package-container {
+// //     padding: 20px;
+// //     h2 {
+// //         text-align: center;
+// //         margin-bottom: 20px;
+// //     }
+// //     input[type="date"] {
+// //         display: block;
+// //         margin: 0 auto 20px;
+// //         padding: 5px;
+// //         font-size: 16px;
+// //     }
+// //     table {
+// //         width: 100%;
+// //         border-collapse: collapse;
+// //         th, td {
+// //             border: 1px solid #ddd;
+// //             padding: 8px;
+// //             text-align: center;
+// //         }
+// //         th {
+// //             background-color: #f2f2f2;
+// //         }
+// //         button {
+// //             margin: 0 5px;
+// //             padding: 5px 10px;
+// //             cursor: pointer;
+// //             &:first-child {
+// //                 background-color: #4CAF50;
+// //                 color: white;
+// //             }
+// //             &:last-child {
+// //                 background-color: #f44336;
+// //                 color: white;
+// //             }
+// //         }
+// //     }
+// // }
+
+// div._loading_overlay_wrapper {
+//     position: unset;
+  
+//     ._loading_overlay_overlay {
+//       z-index: 1000000;
+//     }
+//   }
+  
+//   .manage-schedule-package-container {
+//     .m-p-title {
+//       font-size: 15px;
+//       margin: 10px 0;
+//       text-align: center;
+//       text-transform: uppercase;
+//     }
+//     .manage-schedule-package-body {
+//       padding: 0 20px;
+  
+//       .table-manage-schedule-package {
+//         table,
+//         th,
+//         td {
+//           border: 1px solid black;
+//           border-collapse: collapse;
+//         }
+//         td {
+//           padding: 5px;
+//           text-align: left;
+//         }
+//         th {
+//           padding: 5px;
+//           text-align: left;
+//         }
+//         table {
+//           width: 100%;
+//         }
+//         button {
+//           border: none;
+//           outline: none;
+//           cursor: pointer;
+//         }
+//         .mp-btn-cancel {
+//           margin-right: 10px;
+//           height: 30px;
+//           border-radius: 3px;
+//           background: red;
+//         }
+//       }
+//     }
+//   }
+  
+//   .preview-image {
+//     height: 50px;
+//     width: 100%;
+//     border: 1px solid #ddd;
+//     background: center center no-repeat;
+//     background-size: contain;
+//     cursor: pointer;
+//   }
+  
+
+div._loading_overlay_wrapper {
+  position: unset;
+
+  ._loading_overlay_overlay {
+    z-index: 1000000;
+  }
+}
+
+.manage-schedule-package-container {
+  .m-p-title {
+    font-size: 15px;
+    margin: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .manage-schedule-package-body {
+    padding: 0 20px;
+
+    .table-manage-schedule-package {
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      td {
+        padding: 5px;
+        text-align: left;
+      }
+
+      th {
+        padding: 5px;
+        text-align: left;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+
+      .mp-btn-confirm {
+        margin-right: 10px;
+        height: 30px;
+        border-radius: 3px;
+        background: orange;
+      }
+
+      .mp-btn-cancel {
+        margin-right: 10px;
+        height: 30px;
+        border-radius: 3px;
+        background: red;
+      }
+
+      // Chỉ áp dụng màu nền khi hàng có trạng thái confirmed hoặc cancelled
+      tr.confirmed {
+        background-color: lightgreen; /* Màu nền cho hàng đã xác nhận */
+      }
+
+      tr.cancelled {
+        background-color: lightcoral; /* Màu nền cho hàng đã hủy */
+      }
+
+      // Các hàng mặc định không có trạng thái sẽ có màu trắng
+      tr {
+        background-color: white; /* Màu nền cho hàng chưa xác nhận hoặc hủy */
+      }
+    }
+  }
+}
+
+.preview-image {
+  height: 50px;
+  width: 100%;
+  border: 1px solid #ddd;
+  background: center center no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}

@@ -1,0 +1,193 @@
+.home-header-container {
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  width: 100%;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1200;
+
+  .home-header-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left-content {
+      display: flex;
+      align-items: center;
+
+      .header-logo {
+        background: url("../../assets/hospital-icon3.png") no-repeat center center;
+        background-size: cover;
+        height: 48px;
+        width: 48px;
+        cursor: pointer;
+      }
+    }
+
+    .center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .child-content {
+        margin: 0 20px;
+        text-align: center;
+
+        .subs-title {
+          font-weight: 400;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .right-content {
+      display: flex;
+      align-items: center;
+
+      .support {
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        i {
+          font-size: 15px;
+          margin-right: 5px;
+        }
+      }
+
+      .language-vi,
+      .language-en {
+        opacity: 0.6;
+        cursor: pointer;
+        transition: opacity 0.3s;
+
+        &.active {
+          opacity: 1;
+          span {
+            color: #007bff;
+          }
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+
+        span {
+          padding: 0 10px;
+        }
+      }
+
+      .avatar-profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.home-header-banner {
+  background-image: url("../../assets/header-background3.jpg");
+  // height: 485px;
+  height: 485px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  .content-up {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.25),
+      rgba(255, 255, 255, 0.1)
+    );
+    height: 100%;
+    padding-top: 15px;
+
+    .banner-text {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f6f9fd;
+      padding: 20px;
+      border-radius: 10px;
+
+      .title1 {
+        text-align: center;
+        font-size: 45px;
+        color: black;
+        font-weight: 700;
+      }
+
+      .title2 {
+        text-align: center;
+        font-size: 40px;
+        color: black;
+        font-weight: 700;
+      }
+    }
+
+    .search {
+      position: relative;
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 200px auto 0 auto;
+      padding: 10px;
+      border-radius: 25px;
+      background: #f7d800;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      i {
+        margin: 0 5px;
+        color: #007bff;
+      }
+
+      input {
+        height: 30px;
+        width: 360px;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #333;
+        padding: 0 10px;
+
+        &::placeholder {
+          color: #999;
+        }
+      }
+    }
+  }
+}
+
+.child-content a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: #007bff;
+  }
+}
+
+.language-vi span,
+.language-en span {
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e6e6e6;
+  }
+}
