@@ -40,6 +40,18 @@ let getAllDoctors = async (req, res) => {
   }
 };
 
+let getProfilePackageById = async (req, res) => {
+  try {
+    let infor = await packageService.getProfilePackageById(req.query.packagesId);
+    return res.status(200).json(infor);
+  } catch (e) {
+    return res.status(200).json({
+      errCode: -1,
+      errMessage: "Error from server",
+    });
+  }
+};
+
 let getDetailPackageById = async (req, res) => {
   try {
     // console.log(req.query)
@@ -254,5 +266,6 @@ module.exports = {
   getBookingPackageById:getBookingPackageById,
   cancelBookingPackage: cancelBookingPackage,
   getListPatientForPackage: getListPatientForPackage,
-  confirmBookingPackage: confirmBookingPackage
+  confirmBookingPackage: confirmBookingPackage,
+  getProfilePackageById: getProfilePackageById
 };

@@ -639,7 +639,9 @@ let buildUrlEmail = (doctorId, token) => {
 let postBookAppointment = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
+            console.log("xx", data)
             // Kiểm tra các tham số bắt buộc
+
             if (!data.email || !data.doctorId || !data.timeType || !data.date || !data.patientName) {
                 resolve({
                     errCode: 1,
@@ -723,6 +725,7 @@ let postBookAppointment = (data) => {
         }
     });
 };
+
 
 // Hàm xác nhận lịch hẹn qua email
 let postVerifyBookAppointment = (data) => {

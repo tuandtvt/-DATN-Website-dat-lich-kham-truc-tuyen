@@ -192,7 +192,7 @@
           <table class="table table-striped mt-30">
               <thead>
                   <tr>
-                      <th scope="col">#</th>
+                      <th scope="col">STT</th>
                       <th scope="col"><FormattedMessage id="admin.manage-package.image" /></th>
                       <th scope="col"><FormattedMessage id="admin.manage-package.name" /></th>
                       <th scope="col" class="text-right">&nbsp;</th>

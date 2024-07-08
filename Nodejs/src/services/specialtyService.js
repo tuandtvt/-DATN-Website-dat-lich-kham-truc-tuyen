@@ -38,11 +38,11 @@ let getAllSpecialty = (dataInput) => {
     try {
       let options = { 
       };
-
+      console.log(dataInput)
       if(dataInput.limit) options.limit=parseInt(dataInput.limit)
 
       let data = await db.Specialty.findAll(options);
-
+      console.log(data.length)
       if (data && data.length > 0) {
         data.map((item) => {
           item.image = new Buffer(item.image, "base64").toString("binary");

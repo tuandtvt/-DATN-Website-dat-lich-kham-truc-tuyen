@@ -1,56 +1,160 @@
+// // .home-footer {
+// //     background-color: #fff;
+// //     padding: 20px;
+// //     text-align: center;
+// //     border-top: 1px solid #ddd;
+// //   }
+  
+// //   .footer-content {
+// //     display: flex;
+// //     justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+// //     align-items: center;
+// //     flex-direction: column; /* Đặt các phần tử trong một cột */
+// //     margin-bottom: 20px;
+// //   }
+  
+// //   .hospital-info {
+// //     display: flex;
+// //     align-items: center;
+// //     text-align: center;
+// //     flex-direction: column;
+// //   }
+  
+// //   .hospital-logo {
+// //     width: 80px;
+// //     height: auto;
+// //     margin-bottom: 10px; /* Thay đổi margin để đặt logo phía trên thông tin */
+// //   }
+  
+// //   .footer-content h4 {
+// //     margin: 0;
+// //     font-size: 18px;
+// //     font-weight: bold;
+// //   }
+  
+// //   .footer-content p {
+// //     margin: 5px 0;
+// //   }
+  
+// //   .social-media {
+// //     margin-top: 10px; /* Thêm khoảng cách giữa thông tin bệnh viện và badge Facebook */
+// //   }
+  
+// //   .facebook-badge {
+// //     width: 200px; /* Điều chỉnh kích thước của badge Facebook */
+// //     height: auto;
+// //   }
+  
+// //   a {
+// //     color: #00f;
+// //     text-decoration: none;
+// //   }
+  
+// //   a:hover {
+// //     text-decoration: underline;
+// //   }
+  
+// .home-footer {
+//   background-color: #e0f7fa; /* Màu xanh dương nhạt */
+//   padding: 20px;
+//   text-align: center;
+//   border-top: 1px solid #ddd;
+// }
+
+// .footer-content {
+//   display: flex;
+//   justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+//   align-items: center;
+//   flex-direction: column; /* Đặt các phần tử trong một cột */
+//   margin-bottom: 20px;
+// }
+
+// .hospital-info {
+//   display: flex;
+//   align-items: center;
+//   text-align: center;
+//   flex-direction: column;
+// }
+
+// .hospital-logo {
+//   width: 80px;
+//   height: auto;
+//   margin-bottom: 10px; /* Thay đổi margin để đặt logo phía trên thông tin */
+// }
+
+// .footer-content h4 {
+//   margin: 0;
+//   font-size: 18px;
+//   font-weight: bold;
+// }
+
+// .footer-content p {
+//   margin: 5px 0;
+// }
+
+// .social-media {
+//   margin-top: 10px; /* Thêm khoảng cách giữa thông tin bệnh viện và badge Facebook */
+// }
+
+// .facebook-badge {
+//   width: 200px; /* Điều chỉnh kích thước của badge Facebook */
+//   height: auto;
+// }
+
+// a {
+//   color: #00f;
+//   text-decoration: none;
+// }
+
+// a:hover {
+//   text-decoration: underline;
+// }
+
+
 .home-footer {
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
-    align-items: center;
-    flex-direction: column; /* Đặt các phần tử trong một cột */
-    margin-bottom: 20px;
-  }
-  
-  .hospital-info {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-  }
-  
-  .hospital-logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 10px; /* Thay đổi margin để đặt logo phía trên thông tin */
-  }
-  
-  .footer-content h4 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .footer-content p {
-    margin: 5px 0;
-  }
-  
-  .social-media {
-    margin-top: 10px; /* Thêm khoảng cách giữa thông tin bệnh viện và badge Facebook */
-  }
-  
-  .facebook-badge {
-    width: 200px; /* Điều chỉnh kích thước của badge Facebook */
-    height: auto;
-  }
-  
-  a {
-    color: #00f;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+  background-color: #d7ecf0; /* Màu xanh dương nhạt */
+  padding: 10px 20px; /* Giảm padding top và bottom */
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+  align-items: center;
+  flex-direction: column; /* Đặt các phần tử trong một cột */
+  margin-bottom: 10px; /* Giảm khoảng cách dưới cùng */
+}
+
+.hospital-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 5px; /* Thay đổi margin để đặt logo phía trên thông tin */
+}
+
+.footer-content h4 {
+  margin: 5px 0; /* Giảm khoảng cách top và bottom của tiêu đề */
+  font-size: 16px; /* Giảm kích thước font chữ */
+}
+
+.footer-content p {
+  margin: 3px 0; /* Giảm khoảng cách top và bottom của đoạn văn */
+}
+
+.social-media {
+  margin-top: 5px; /* Thêm khoảng cách giữa thông tin bệnh viện và badge Facebook */
+}
+
+.facebook-badge {
+  width: 160px; /* Giảm kích thước của badge Facebook */
+  height: auto;
+}
+
+a {
+  color: #00f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

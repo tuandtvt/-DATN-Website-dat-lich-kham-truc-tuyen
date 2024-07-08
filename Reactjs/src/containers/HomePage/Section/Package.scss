@@ -1,16 +1,89 @@
-// .specialty-child {
-//   cursor: pointer;
-//   .specialty-name {
-//     padding: 10px 0;
+// // .specialty-child {
+// //   cursor: pointer;
+// //   .specialty-name {
+// //     padding: 10px 0;
+// //     &:hover {
+// //       color: #45c3d2;
+// //     }
+// //   }
+// // }
+
+// .package-name {
 //     &:hover {
 //       color: #45c3d2;
 //     }
 //   }
-// }
+  
+.section-medical-package {
+  background-color: #d7ecf0; // Màu nền cho toàn bộ section
 
-.package-name {
-    &:hover {
-      color: #45c3d2;
+  .section-container {
+    padding: 20px; // Khoảng cách nội dung với viền
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .title-section {
+      color: #00796b; // Màu chữ cho tiêu đề
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .btn-section {
+      background-color: #00796b; // Màu nút
+      color: #ffffff; // Màu chữ nút
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #004d40; // Màu nền khi hover
+      }
     }
   }
-  
+
+  .card-bs-custom {
+    background-color: #ffffff; // Màu nền card
+    border: 1px solid #00796b; // Đường viền card
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: #004d40; // Đường viền khi hover
+    }
+
+    .package-name {
+      color: #004d40; // Màu chữ tên gói
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #45c3d2; // Màu chữ khi hover
+      }
+    }
+  }
+
+  .btn-primary {
+    background-color: #00796b; // Màu nút Load more
+    color: #ffffff; // Màu chữ nút Load more
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #004d40; // Màu nền khi hover
+    }
+  }
+}

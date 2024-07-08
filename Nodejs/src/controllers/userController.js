@@ -41,6 +41,11 @@ let handleCreateNewUser = async (req, res) => {
   return res.status(200).json(message);
 };
 
+let verifyEmail = async (req, res) => {
+  let message = await userService.verifyEmail(req.body);
+  return res.status(200).json(message);
+};
+
 let handleEditUser = async (req, res) => {
   let data = req.body;
   let message = await userService.udateUserData(data);
@@ -191,5 +196,6 @@ module.exports = {
   handleEditPassword:handleEditPassword,
   filterRestoreUsers:filterRestoreUsers,
   handleRestoreUser:handleRestoreUser,
-  deleteRestoreUser:deleteRestoreUser
+  deleteRestoreUser:deleteRestoreUser,
+  verifyEmail: verifyEmail
 };

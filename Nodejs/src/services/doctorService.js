@@ -280,7 +280,7 @@ let checkRequiredFields = (inputData) => {
     // "selectedProvice",
     // "nameClinic",
     "addressClinic",
-    "note",
+    // "note",
     "specialtyId",
     // "packagesId",
   ];
@@ -301,10 +301,11 @@ let checkRequiredFields = (inputData) => {
 };
 
 let saveDetailInforDoctor = (inputData) => {
+  // console.log('haha', inputData)
   return new Promise(async (resolve, reject) => {
     try {
       let checkObj = checkRequiredFields(inputData);
-      
+      // console.log('hihi', checkObj.isValid)
       if (checkObj.isValid === false) {
         resolve({
           errCode: 1,
@@ -599,6 +600,7 @@ let getExtraInforDoctorById = (doctorId) => {
 };
 
 let getProfileDoctorById = (doctorId) => {
+  // console.log('hhh', doctorId)
   return new Promise(async (resolve, reject) => {
     try {
       if (!doctorId) {
@@ -779,6 +781,44 @@ let getBookingById = (bookingId) => {
   });
 };
 
+// let cancelBooking = (data) => {
+//   return new Promise(async (resolve, reject) => {
+//     try {
+//       if (!data.date || !data.doctorId || !data.patientId || !data.timeType) {
+//         resolve({
+//           errCode: 1,
+//           errMessage: "Missing required parameter",
+//         });
+//       } else {
+//         //update booking status
+//         let appoinment = await db.Booking.findOne({
+//           where: {
+//             doctorId: data.doctorId,
+//             patientId: data.patientId,
+//             timeType: data.timeType,
+//             date: data.date,
+//             statusId: "S2",
+//           },
+//           raw: false,
+//         });
+
+//         if (appoinment) {
+//           appoinment.statusId = "S4";
+//           await appoinment.save();
+//         }
+
+//         resolve({
+//           errCode: 0,
+//           errMessage: "ok",
+//         });
+//       }
+//     } catch (e) {
+//       reject(e);
+//     }
+//   });
+// };
+
+
 let cancelBooking = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -788,8 +828,8 @@ let cancelBooking = (data) => {
           errMessage: "Missing required parameter",
         });
       } else {
-        //update booking status
-        let appoinment = await db.Booking.findOne({
+        // Update booking status
+        let appointment = await db.Booking.findOne({
           where: {
             doctorId: data.doctorId,
             patientId: data.patientId,
@@ -797,17 +837,43 @@ let cancelBooking = (data) => {
             date: data.date,
             statusId: "S2",
           },
+          include: [
+            {
+              model: db.User,
+              as: 'patientData', // Alias for the patient as defined in your model
+              attributes: ['email', 'firstName'],
+            },
+            {
+              model: db.User,
+              as: 'doctorIdData', // Alias for the doctor as defined in your model
+              attributes: ['firstName','lastName'],
+            }
+          ],
           raw: false,
+          nest: true,
         });
 
-        if (appoinment) {
-          appoinment.statusId = "S4";
-          await appoinment.save();
+        if (appointment) {
+          appointment.statusId = "S4";
+          await appointment.save();
+
+          // Prepare data for sending email
+          let emailData = {
+            receiverEmail: appointment.patientData.email,
+            // patientName: appointment.patientData.firstName,
+            patientName: appointment.patientName,
+            doctorName: appointment.doctorIdData.firstName + ' ' + appointment.doctorIdData.lastName, // Ensure the doctor's name is retrieved correctly
+            time: `${data.date} ${data.timeType}`, // Format this according to your needs
+            reason: "Bác sĩ có lịch đột xuất, không thể khám bệnh trong thời gian này, mong quý bệnh nhân thông cảm và đặt lịch vào thời gian khác" // This should be replaced with actual data
+          };
+
+          // Send cancellation email
+          await emailService.sendCancellationEmail(emailData);
         }
 
         resolve({
           errCode: 0,
-          errMessage: "ok",
+          errMessage: "Appointment cancelled successfully",
         });
       }
     } catch (e) {
@@ -815,6 +881,9 @@ let cancelBooking = (data) => {
     }
   });
 };
+
+
+
 let sendRemedy = (data) => {
   return new Promise(async (resolve, reject) => {
     try {

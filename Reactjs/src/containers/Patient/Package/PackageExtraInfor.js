@@ -51,9 +51,9 @@ class PackageExtraInfor extends Component {
     return (
       <div className="package-extra-infor-container">
         <div className="content-up">
-          <div className="text-address">
+          {/* <div className="text-address">
             <FormattedMessage id="patient.extra-infor-package.text-address" />
-          </div>
+          </div> */}
           <div className="name-clinic">
             {extraInfor && extraInfor.nameClinic ? extraInfor.nameClinic : ""}
           </div>
@@ -87,12 +87,12 @@ class PackageExtraInfor extends Component {
                     suffix={"$"}
                   />
                 )}
-              <span
+              {/* <span
                 className="detail"
                 onClick={() => this.showHideDetailInfor(true)}
               >
                 <FormattedMessage id="patient.extra-infor-package.detail" />
-              </span>
+              </span> */}
             </div>
           )}
           {isShowDetailInfor === true && (

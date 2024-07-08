@@ -512,7 +512,7 @@ export default function MedicalHistory() {
                   <th scope="col" className="text-center">
                     <FormattedMessage id="medical-history.doctor" />
                   </th>
-                  <th scope="col" className="text-center">
+                  {/* <th scope="col" className="text-center">
                     <FormattedMessage id="medical-history.prescription" />
                   </th>
                   <th scope="col" className="text-center">
@@ -520,7 +520,7 @@ export default function MedicalHistory() {
                   </th>
                   <th scope="col" className="text-center">
                     <FormattedMessage id="medical-history.receipt" />
-                  </th>
+                  </th> */}
                   <th scope="col" className="text-center">&nbsp;</th>
                 </tr>
               </thead>
@@ -581,7 +581,7 @@ export default function MedicalHistory() {
                         </ul>
                       </td>
                       <td className="text-center">{item.description}</td>
-                      <td className="text-center">
+                      {/* <td className="text-center">
                         <div
                           className="pointer text-primary"
                           onClick={() => openPreviewImage(item)}
@@ -594,7 +594,7 @@ export default function MedicalHistory() {
                         className="text-center pointer text-center text-success"
                       >
                         <FormattedMessage id={"manage-patient.download"} />
-                      </td>
+                      </td> */}
                     </tr>
                   );
                 })}

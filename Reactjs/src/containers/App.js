@@ -52,6 +52,7 @@ import { getOptionGroupUnstyledUtilityClass } from "@mui/base";
 
 
 import ProfileSetting from "./Profile/ProfileSetting";
+import VerifyEmail1 from "./Patient/VerifyEmail1.js";
 
 
 
@@ -134,6 +135,10 @@ class App extends Component {
                   <Route
                     path={path.VERIFY_EMAIL_BOOKING}
                     component={VerifyEmail}
+                  />
+                  <Route
+                    path={path.VERIFY_EMAIL}
+                    component={VerifyEmail1}
                   />
                   <Route
                     path={path.LIST_SPECIALTY}

@@ -1745,8 +1745,8 @@ class ManageDoctor extends Component {
         <table className="table table-striped mt-30">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Image</th>
+              <th scope="col">STT</th>
+              <th scope="col">Hình ảnh</th>
               <th scope="col"><FormattedMessage id="admin.manage-doctor.name" /></th>
               <th scope="col"><FormattedMessage id="admin.manage-doctor.position" /></th>
               <th scope="col"><FormattedMessage id="admin.manage-doctor.specialty-head" /></th>

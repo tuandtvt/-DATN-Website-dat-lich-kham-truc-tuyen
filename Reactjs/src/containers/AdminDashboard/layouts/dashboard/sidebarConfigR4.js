@@ -4,7 +4,7 @@ const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 
 const sidebarConfigR4 = [
   {
-    title: "Bảng điều khiển",
+    title: "Thống kê",
     path: "/admin-dashboard/app",
     icon: getIcon("eva:pie-chart-2-fill"),
   },
@@ -23,11 +23,11 @@ const sidebarConfigR4 = [
   //   path: "/admin-dashboard/manage-schedulepackage",
   //   icon: getIcon("icon-park:plan"),
   // },
-  {
-    title: "Quản lý phòng khám",
-    path: "/admin-dashboard/manage-clinic",
-    icon: getIcon("healthicons:ambulatory-clinic"),
-  },
+  // {
+  //   title: "Quản lý phòng khám",
+  //   path: "/admin-dashboard/manage-clinic",
+  //   icon: getIcon("healthicons:ambulatory-clinic"),
+  // },
   {
     title: "Quản lý chuyên khoa",
     path: "/admin-dashboard/manage-specialty",
@@ -38,11 +38,11 @@ const sidebarConfigR4 = [
     path: "/admin-dashboard/manage-package",
     icon: getIcon("fluent:calendar-settings-20-filled"),
   },
-  {
-    title: "Quản lý thuốc",
-    path: "/admin-dashboard/manage-drug",
-    icon: getIcon("mdi:drugs"),
-  },
+  // {
+  //   title: "Quản lý thuốc",
+  //   path: "/admin-dashboard/manage-drug",
+  //   icon: getIcon("mdi:drugs"),
+  // },
 ];
 
 export default sidebarConfigR4;

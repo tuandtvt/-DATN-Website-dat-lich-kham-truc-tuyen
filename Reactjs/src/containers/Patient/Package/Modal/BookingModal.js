@@ -1,3 +1,9 @@
+
+
+
+
+
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
@@ -88,7 +94,7 @@ class BookingModal extends Component {
       if (this.props.dataTime && !_.isEmpty(this.props.dataTime)) {
         let packagesId = this.props.dataTime.packagesId;
         let timeType = this.props.dataTime.timeType;
-        // console.log("zzz",packagesId,timeType)
+        
         this.setState({
           packagesId: packagesId,
           timeType: timeType,
@@ -137,18 +143,21 @@ class BookingModal extends Component {
   };
 
   handlePackageName = (dataTime) => {
+    console.log('xxx',dataTime)
     let { language } = this.props;
     if (dataTime && !_.isEmpty(dataTime)) {
-      let name =
-        language === LANGUAGES.VI
-          ? `${dataTime.name}`
-          : `${dataTime.name}`;
-
+      let name = "";
+      if (language === LANGUAGES.VI) {
+        name = dataTime.timeTypeData.valueVi; // Assuming `name` is stored directly as a ful
+      } else {
+        name = dataTime.packageData.valueVi; // Assuming `name` is stored directly as a full name i
+      }
+  
       return name;
     }
     return "";
   };
-
+  
 
   
   handleConfirmBooking = async () => {
@@ -156,11 +165,12 @@ class BookingModal extends Component {
     let {language}=this.props;
 
     //validate input
-    // !data.email || !data.packagesId || !data.timeType || !data.date
+    // !data.email || !data.doctorId || !data.timeType || !data.date
     let date = new Date(this.state.birthday).getTime();
     let timeString = this.buildTimeBooking(this.props.dataTime);
     let packageName = this.handlePackageName(this.props.dataTime);
-    console.log(this.props);
+    
+    // console.log(this.props);
     let res = await postPatientBookPackageAppointment({
       patientName: this.state.patientName,
       phoneNumber: this.state.phoneNumber,
@@ -210,7 +220,7 @@ class BookingModal extends Component {
   render() {
     let { isOpenModal, closeBookingClose, dataTime } = this.props;
 
-    let packagesId  = dataTime && !_.isEmpty(dataTime) ? dataTime.packagesId : "";
+    let packagesId = dataTime && !_.isEmpty(dataTime) ? dataTime.packagesId : "";
 
     return (
       <LoadingOverlay
@@ -236,7 +246,7 @@ class BookingModal extends Component {
               {/* {JSON.stringify(dataTime)} */}
               <div className="package-infor">
                 <ProfilePackage
-                  packagesId={packagesId}
+                  packageId={packagesId}
                   isShowDescriptionPackage={false}
                   dataTime={dataTime}
                   isShowLinkDetail={false}
@@ -359,3 +369,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookingModal));
+
+

@@ -363,8 +363,8 @@ class EditDoctor extends Component {
     // selectedPrice: "",
     // selectedPayment: "",
     // selectedProvice: "",
-    console.log("this.state.listPrice",this.state.listPrice)
-    console.log("this.state.listPackage",this.state.listPackage)
+    // console.log("this.state.listPrice",this.state.listPrice)
+    // console.log("this.state.listPackage",this.state.listPackage)
     return (
       <div className="manage-doctor-container">
         <div className="manage-doctor-title">
@@ -469,7 +469,7 @@ class EditDoctor extends Component {
               value={this.state.addressClinic}
             />
           </div>
-          <div className="col-4 form-group">
+          {/* <div className="col-4 form-group">
             <label>
               <FormattedMessage id="admin.manage-doctor.note" />
             </label>
@@ -478,7 +478,7 @@ class EditDoctor extends Component {
               onChange={(event) => this.handleOnChangeText(event, "note")}
               value={this.state.note}
             />
-          </div>
+          </div> */}
         </div>
         <div className="row">
           <div className="col-4 form-group">
@@ -510,7 +510,7 @@ class EditDoctor extends Component {
               name="selectedSpecialty"
             /> */}
           </div>
-          <div className="col-4 form-group">
+          {/* <div className="col-4 form-group">
             <label>
             {this.props.language=="en" ? "Package" : "Gói khám"}
             </label>
@@ -526,7 +526,7 @@ class EditDoctor extends Component {
                 })
               }
             </select>
-          </div>
+          </div> */}
         </div>
         <div className="manage-doctor-editor">
           <MdEditor

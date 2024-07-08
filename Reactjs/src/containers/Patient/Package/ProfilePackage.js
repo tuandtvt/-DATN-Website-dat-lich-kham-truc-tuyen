@@ -20,6 +20,8 @@ class ProfilePackage extends Component {
 
   async componentDidMount() {
     let data = await this.getInforPackage(this.props.packageId);
+    console.log("data",this.props.packageId);
+    console.log("data",data);
     this.setState({
       dataProfile: data,
     });

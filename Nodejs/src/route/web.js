@@ -16,6 +16,7 @@ let initWebRoutes = (app) => {
   router.post("/api/login", userController.handleLogin);
   router.get("/api/get-all-users", userController.handleGetAllUsers);
   router.post("/api/create-new-user", userController.handleCreateNewUser);
+  router.post("/api/verify-email1", userController.verifyEmail);
   router.put("/api/edit-user", userController.handleEditUser);
   router.post("/api/edit-password-user", userController.handleEditPassword);
   router.delete("/api/delete-user", userController.handleDeleteUser);
@@ -99,7 +100,7 @@ let initWebRoutes = (app) => {
   );
 
   router.post("/api/create-new-specialty", specialtyController.createSpecialty);
-  router.get("/api/get-specialty", specialtyController.getAllSpecialty);
+  router.post("/api/get-specialty", specialtyController.getAllSpecialty);
   router.get(
     "/api/get-detail-specialty-by-id",
     specialtyController.getDetailSpecialtyById
@@ -117,6 +118,10 @@ let initWebRoutes = (app) => {
   router.get(
     "/api/get-detail-package-by-id",
     packageController.getDetailPackageById
+  );
+  router.get(
+    "/api/get-profile-package-by-id",
+    packageController.getProfilePackageById
   );
 
   router.get(

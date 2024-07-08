@@ -163,7 +163,7 @@ const RetrievePassword = () => {
         <Grid container spacing={1} className={classes.container}>
           <Grid item xs={12}>
             <Typography variant="h4" className={classes.titleRetrieve}>
-              Retrieve Password
+              Thay đổi mật khẩu
             </Typography>
           </Grid>
           <Grid item xs={12}>
@@ -239,7 +239,7 @@ const RetrievePassword = () => {
               className={classes.ButtonbtnRetrieve}
               onClick={() => handleRetrievePassword()}
             >
-              Retrieve
+              Xác nhận
             </Button>
           </Grid>
         </Grid>

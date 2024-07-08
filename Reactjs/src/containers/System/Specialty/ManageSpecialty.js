@@ -192,7 +192,7 @@ class ManageSpecialty extends Component {
         <table class="table table-striped mt-30">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">STT</th>
                     <th scope="col"><FormattedMessage id="admin.manage-specialty.image" /></th>
                     <th scope="col"><FormattedMessage id="admin.manage-specialty.name" /></th>
                     <th scope="col" class="text-right">&nbsp;</th>

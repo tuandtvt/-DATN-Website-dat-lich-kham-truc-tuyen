@@ -34,6 +34,77 @@ let base64_encode = (file) => {
 }
 
 
+// let handleUserLogin = (email, password) => {
+//   return new Promise(async (resolve, reject) => {
+//     try {
+//       let userData = {};
+//       let isExist = await checkUserEmail(email);
+//       if (isExist) {
+//         let user = await db.User.findOne({
+//           where: { email: email },
+//           attributes: [
+//             "id",
+//             "email",
+//             "roleId",
+//             "password",
+//             "firstName",
+//             "lastName",
+//             "image",
+//             "address",
+//             "gender",
+//             "phonenumber",
+//             "status"
+//           ],
+//           include: [
+//             {
+//               model: db.Doctor_Infor,
+//               attributes: ["priceId", "specialtyId"],
+//               include: [
+//                 {
+//                   model: db.Allcode,
+//                   as: "priceTypeData",
+//                   attributes: ["valueEn", "valueVi"],
+//                 },
+//               ],
+//             },
+//           ],
+//           raw: true,
+//           nest: true,
+//         });
+//         if (user) {
+//           //compare password
+//           let check = await bcrypt.compareSync(password, user.password);
+//           if (check) {
+//             userData.errCode = 0;
+//             userData.errMessage = "OK";
+//             delete user.password;
+//             userData.user = user;
+//           } else {
+//             userData.errCode = 3;
+//             userData.errMessage = "wrong password";
+//           }
+
+//           //check status
+//           if(user && user.status && user.status!=0){
+//             userData.errCode = 1;
+//             userData.errMessage = `Status is not active`;
+//           }
+//         } else {
+//           userData.errCode = 2;
+//           userData.errMessage = `User's not found`;
+//         }
+//       } else {
+//         userData.errCode = 1;
+//         userData.errMessage = `Your's Email isn't exist in your system. Plz try other email`;
+//       }
+
+//       resolve(userData);
+//     } catch (e) {
+//       reject(e);
+//     }
+//   });
+// };
+
 let handleUserLogin = (email, password) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -55,47 +126,32 @@ let handleUserLogin = (email, password) => {
             "phonenumber",
             "status"
           ],
-          include: [
-            {
-              model: db.Doctor_Infor,
-              attributes: ["priceId", "specialtyId"],
-              include: [
-                {
-                  model: db.Allcode,
-                  as: "priceTypeData",
-                  attributes: ["valueEn", "valueVi"],
-                },
-              ],
-            },
-          ],
           raw: true,
           nest: true,
         });
         if (user) {
-          //compare password
-          let check = await bcrypt.compareSync(password, user.password);
-          if (check) {
-            userData.errCode = 0;
-            userData.errMessage = "OK";
-            delete user.password;
-            userData.user = user;
-          } else {
-            userData.errCode = 3;
-            userData.errMessage = "wrong password";
-          }
-
-          //check status
-          if(user && user.status && user.status!=0){
+          if (user.status !== 1) {
             userData.errCode = 1;
-            userData.errMessage = `Status is not active`;
+            userData.errMessage = "Please verify your email before logging in.";
+          } else {
+            let check = await bcrypt.compareSync(password, user.password);
+            if (check) {
+              userData.errCode = 0;
+              userData.errMessage = "OK";
+              delete user.password;
+              userData.user = user;
+            } else {
+              userData.errCode = 3;
+              userData.errMessage = "Wrong password";
+            }
           }
         } else {
           userData.errCode = 2;
-          userData.errMessage = `User's not found`;
+          userData.errMessage = "User not found";
         }
       } else {
         userData.errCode = 1;
-        userData.errMessage = `Your's Email isn't exist in your system. Plz try other email`;
+        userData.errMessage = "Your email isn't exist in your system. Please try another email.";
       }
 
       resolve(userData);
@@ -104,6 +160,7 @@ let handleUserLogin = (email, password) => {
     }
   });
 };
+
 
 let checkUserEmail = (userEmail) => {
   return new Promise(async (resolve, reject) => {
@@ -166,26 +223,67 @@ let getAllUsers = (userId) => {
   });
 };
 
-let createNewUser = async (data) => { 
-  // console.log(1)
-  return new Promise(async (resolve, reject) => { 
-    // console.log(2)
-    try { 
-      // console.log(3)
-      //check email is exist
-      let check = await checkUserPhonenumber(data.phonenumber);
-      // console.log(4)
+// let createNewUser = async (data) => { 
+//   // console.log(1)
+//   return new Promise(async (resolve, reject) => { 
+//     // console.log(2)
+//     try { 
+//       // console.log(3)
+//       //check email is exist
+//       let check = await checkUserEmail(data.email);
+//       // console.log(4)
+//       if (check === true) {
+//         // console.log(5)
+//         resolve({
+//           errCode: 1,
+//           errMessage: "Your email is already in used, plz try another email!!",
+//         });
+//         // console.log(6)
+//       } else {
+//         //  console.log(7)
+//         let hashPasswordFromBcrypt = await hashUserPassword(data.password);
+//         //  console.log(8)
+
+//         await db.User.create({
+//           email: data.email,
+//           password: hashPasswordFromBcrypt,
+//           firstName: data.firstName,
+//           lastName: data.lastName,
+//           address: data.address,
+//           phonenumber: data.phonenumber,
+//           gender: data.gender,
+//           roleId: data.roleId,
+//           positionId: data.positionId,
+//           image: data.avatar,
+//           status:data.status ? data.status : 0
+//         });
+//         // console.log(9)
+//         resolve({
+//           errCode: 0,
+//           message: "ok",
+//         });
+//         // console.log(10)
+//       }
+//     } catch (e) {
+//       // console.log(11)
+//       reject(e);
+//       // console.log(12)
+//     }
+//   });
+// };
+
+let createNewUser = async (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let check = await checkUserEmail(data.email);
       if (check === true) {
-        // console.log(5)
         resolve({
           errCode: 1,
-          errMessage: "Your phonenumber is already in used, plz try another phonenumber!!",
+          errMessage: "Your email is already in use, please try another email!!",
         });
-        // console.log(6)
       } else {
-        //  console.log(7)
         let hashPasswordFromBcrypt = await hashUserPassword(data.password);
-        //  console.log(8)
+        let tokenUser = uuidv4();
 
         await db.User.create({
           email: data.email,
@@ -198,22 +296,63 @@ let createNewUser = async (data) => {
           roleId: data.roleId,
           positionId: data.positionId,
           image: data.avatar,
-          status:data.status ? data.status : 0
+          status: 0,
+          tokenUser: tokenUser,
         });
-        // console.log(9)
+
+        await emailService.sendVerificationEmail({
+          receiverEmail: data.email,
+          redirectLink: buildUrlEmailVerification(tokenUser, data.email),
+        });
+
         resolve({
           errCode: 0,
-          message: "ok",
+          message: "OK",
         });
-        // console.log(10)
       }
     } catch (e) {
-      // console.log(11)
       reject(e);
-      // console.log(12)
     }
   });
 };
+
+let buildUrlEmailVerification = (tokenUser, email) => {
+  let result = `${process.env.URL_REACT}/verify-email?tokenUser=${tokenUser}&email=${email}`;
+  return result;
+};
+
+let verifyEmail = (data) => {
+  // console.log("token"+data.tokenUser)
+  // console.log("token"+data.email)
+  return new Promise(async (resolve, reject) => { 
+    try {
+      let user = await db.User.findOne({
+        where: { email:data.email,tokenUser: data.tokenUser }, 
+        raw: false,
+      });
+      if (user) {
+        user.status = 1;
+        user.tokenUser = null;
+        // console.log('1',user)
+        await user.save();
+        // console.log('2',user)
+        resolve({
+          errCode: 0,
+          message: "Email verified successfully!",
+        });
+      } else {
+        resolve({
+          errCode: 2,
+          errMessage: "Invalid token or email",
+        });
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+
 
 let hashUserPassword = (password) => {
   return new Promise(async (resolve, reject) => {
@@ -747,5 +886,6 @@ module.exports = {
   handleEditPassword:handleEditPassword,
   filterRestoreUsers:filterRestoreUsers,
   handleRestoreUser:handleRestoreUser,
-  deleteRestoreUser:deleteRestoreUser
+  deleteRestoreUser:deleteRestoreUser,
+  verifyEmail: verifyEmail
 };

@@ -12,6 +12,7 @@ export const path = {
   DETAIL_CLINIC: "/detail-clinic/:id",
   DETAIL_PACKAGE: "/detail-package/:id",
   VERIFY_EMAIL_BOOKING: "/verify-booking",
+  VERIFY_EMAIL: "/verify-email",
   LIST_SPECIALTY: "/list-specialty",
   LIST_PACKAGE: "/list-package",
   LIST_OUSTANDING_DOCTOR: "/list-oustanding-doctor",

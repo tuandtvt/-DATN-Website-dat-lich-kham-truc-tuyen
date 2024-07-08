@@ -1,0 +1,38 @@
+
+
+.section-about {
+  background-color: #f1f6f6; // Màu nền cho toàn bộ section
+
+  .section-about-header {
+    color: #00796b; // Màu chữ cho header
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0;
+  }
+
+  .section-about-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+
+    .content-left {
+      flex-basis: 70%; // Đặt cơ sở bề ngang cho phần video
+      padding-right: 10px;
+      
+      iframe {
+        border: 2px solid #00796b; // Đường viền cho video iframe
+        width: 100%; // Đảm bảo iframe chiếm toàn bộ chiều rộng của phần chứa nó
+      }
+    }
+
+    .content-right {
+      flex-basis: 30%; // Đặt cơ sở bề ngang cho phần nội dung chữ
+      padding-left: 10px;
+      color: #004d40; // Màu chữ cho nội dung bên phải
+      background-color: #ffffff; // Màu nền cho nội dung bên phải
+      border: 1px solid #00796b; // Đường viền cho nội dung bên phải
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
   import { connect } from "react-redux";
   import { FormattedMessage } from "react-intl";
+  import "./About.scss";
 
   class About extends Component {
     render() {
@@ -14,7 +15,7 @@ import React, { Component } from "react";
               <iframe
                 width="100%"
                 height="400px"
-                src="https://www.youtube.com/embed/okiNvyBmcZ4"
+                src="https://www.youtube.com/embed/4GPNhjKNhYg"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -44,3 +45,4 @@ import React, { Component } from "react";
   };
 
   export default connect(mapStateToProps, mapDispatchToProps)(About)
+

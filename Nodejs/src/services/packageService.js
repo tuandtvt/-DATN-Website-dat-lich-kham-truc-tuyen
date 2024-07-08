@@ -52,6 +52,42 @@ let createPackage = (data) => {
   });
 };
 
+let getProfilePackageById = (packageId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (!packageId) {
+        resolve({
+          errCode: 1,
+          errMessage: "Missing required parameter",
+        });
+      } else {
+        let packageData = await db.Package.findOne({
+          where: { id: packageId },
+          attributes: ["id","name","descriptionHTML", "descriptionMarkdown", "image", "doctorId", "priceId"],
+        });
+        if (!packageData) {
+          return {
+            errCode: 1,
+            errMessage: "Package not found"
+          };
+        }
+
+        if (packageData && packageData.image) {
+          packageData.image = new Buffer(packageData.image, "base64").toString("binary");
+         
+        }
+
+        resolve({
+          errCode: 0,
+          data: packageData,
+        });
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 let getAllPackage = (dataInput) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -975,6 +1011,7 @@ module.exports = {
   getBookingPackageById: getBookingPackageById,
   cancelBookingPackage: cancelBookingPackage,
   getListPatientForPackage: getListPatientForPackage,
-  confirmBookingPackage: confirmBookingPackage
+  confirmBookingPackage: confirmBookingPackage,
+  getProfilePackageById: getProfilePackageById
   // getAllPatientForPackage: getAllPatientForPackage
 };

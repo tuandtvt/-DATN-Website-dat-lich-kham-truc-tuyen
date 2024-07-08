@@ -44,8 +44,7 @@ class DetailPackage extends Component {
     if (detailPackage) {
       name = detailPackage.name;
     }
-    console.log(detailPackage)
-    console.log(detailPackage.image)
+    
     return (
       <>
         <HomeHeader isShowBanner={false} />

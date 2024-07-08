@@ -95,12 +95,12 @@ class DoctorExtraInfor extends Component {
                     suffix={"$"}
                   />
                 )}
-              <span
+              {/* <span
                 className="detail"
                 onClick={() => this.showHideDetailInfor(true)}
               >
                 <FormattedMessage id="patient.extra-infor-doctor.detail" />
-              </span>
+              </span> */}
             </div>
           )}
           {isShowDetailInfor === true && (

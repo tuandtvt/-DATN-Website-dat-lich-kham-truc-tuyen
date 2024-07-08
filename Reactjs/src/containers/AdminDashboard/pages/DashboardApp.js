@@ -29,9 +29,9 @@ export default function DashboardApp() {
           <Typography variant="h4"><FormattedMessage id={"admin-dashboard.dashboard.greeting"} /></Typography>
         </Box>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={3}>
+          {/* <Grid item xs={12} sm={6} md={3}>
             <AppWeeklyRevenue />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm={6} md={3}>
             <AppNewUsers />
           </Grid>
@@ -42,17 +42,17 @@ export default function DashboardApp() {
             <AppTotalDoctors />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppTopThreeDoctorsOfTheYear />
-          </Grid>
+          </Grid> */}
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppTopFourVipPatient />
-          </Grid>
+          </Grid> */}
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppMonthlyRevenueSpecialty />
-          </Grid>
+          </Grid> */}
 
           {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject />
@@ -65,7 +65,7 @@ export default function DashboardApp() {
           {/* <Grid item xs={12} md={6} lg={4}>
             <AppOrderTimeline />
           </Grid> */}
-          {/* 
+{/*           
           <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite />
           </Grid> */}

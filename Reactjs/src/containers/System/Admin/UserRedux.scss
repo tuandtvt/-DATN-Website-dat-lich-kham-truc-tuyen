@@ -1,9 +1,33 @@
+// .preview-img-container {
+//   .label-upload {
+//     padding: 5px;
+//     border-radius: 3px;
+//     background: #ddd;
+//     cursor: pointer;
+
+//     &:hover {
+//       opacity: 0.9;
+//     }
+//   }
+
+//   .preview-image {
+//     height: 50px;
+//     width: 100%;
+//     border: 1px solid #ddd;
+//     background: center center no-repeat;
+//     background-size: contain;
+//     cursor: pointer;
+//   }
+// }
+
+
 .preview-img-container {
   .label-upload {
     padding: 5px;
     border-radius: 3px;
-    background: #ddd;
+    background: #e0f7fa; /* Màu nền xanh dương nhạt */
     cursor: pointer;
+    transition: opacity 0.3s ease; /* Hiệu ứng chuyển động */
 
     &:hover {
       opacity: 0.9;
@@ -17,5 +41,10 @@
     background: center center no-repeat;
     background-size: contain;
     cursor: pointer;
+    margin-top: 10px; /* Khoảng cách giữa label-upload và preview-image */
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }

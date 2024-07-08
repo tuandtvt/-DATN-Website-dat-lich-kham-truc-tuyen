@@ -12,6 +12,10 @@ const createNewUserService = (data) => {
   return axios.post("/api/create-new-user", data);
 };
 
+const verifyEmail1 = (data) => {
+  return axios.post("/api/verify-email1", data);
+};
+
 const deleteUserService = (userId) => {
   return axios.delete("/api/delete-user", {
     data: {
@@ -100,7 +104,7 @@ const createNewSpecialty = (data) => {
 };
 
 const getAllSpecialty = (data) => {
-  return axios.get("/api/get-specialty", data);
+  return axios.post("/api/get-specialty", data);
 };
 
 const getAllSpecialtyById = (data) => {
@@ -108,6 +112,7 @@ const getAllSpecialtyById = (data) => {
     `/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`
   );
 };
+
 
 const createNewPackage = (data) => {
   return axios.post("/api/create-new-package", data);
@@ -309,5 +314,6 @@ export {
   getBookingPackageById,
   getAllPatientForPackage,
   confirmBooking,
-  confirmBookingPackage
+  confirmBookingPackage,
+  verifyEmail1
 };

@@ -1,3 +1,5 @@
+
+
 .home-header-container {
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
   height: 70px;
@@ -5,7 +7,7 @@
   padding: 0 40px;
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: #d7ecf0; /* Màu xanh dương nhạt */
   z-index: 1200;
 
   .home-header-content {
@@ -39,7 +41,7 @@
 
         .subs-title {
           font-weight: 400;
-          font-size: 12px;
+          font-size: 14px; /* Tăng kích thước chữ */
         }
       }
     }
@@ -55,7 +57,7 @@
         cursor: pointer;
 
         i {
-          font-size: 15px;
+          font-size: 17px; /* Tăng kích thước chữ */
           margin-right: 5px;
         }
       }
@@ -79,6 +81,7 @@
 
         span {
           padding: 0 10px;
+          font-size: 14px; /* Tăng kích thước chữ */
         }
       }
 
@@ -97,14 +100,14 @@
 }
 
 .home-header-banner {
-  background-image: url("../../assets/header-background3.jpg");
-  // height: 485px;
+  background-image: url("../../assets/bvvd.jpg");
   height: 485px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
+
   .content-up {
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.25),
@@ -124,14 +127,14 @@
 
       .title1 {
         text-align: center;
-        font-size: 45px;
+        font-size: 48px; /* Tăng kích thước chữ */
         color: black;
         font-weight: 700;
       }
 
       .title2 {
         text-align: center;
-        font-size: 40px;
+        font-size: 43px; /* Tăng kích thước chữ */
         color: black;
         font-weight: 700;
       }
@@ -152,6 +155,7 @@
       i {
         margin: 0 5px;
         color: #007bff;
+        font-size: 18px; /* Tăng kích thước chữ */
       }
 
       input {
@@ -160,7 +164,7 @@
         background: transparent;
         border: none;
         outline: none;
-        font-size: 16px;
+        font-size: 18px; /* Tăng kích thước chữ */
         color: #333;
         padding: 0 10px;
 

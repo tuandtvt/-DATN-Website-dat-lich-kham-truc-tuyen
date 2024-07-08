@@ -103,7 +103,7 @@ class HomeHeader extends Component {
               </div>
 
               <div className="child-content">
-                <div>
+                {/* <div>
                   <b>
                     <a href="/list-medical-facility">
                       <FormattedMessage id="homeheader.health-facility" />
@@ -114,7 +114,7 @@ class HomeHeader extends Component {
                   <a href="/list-medical-facility">
                     <FormattedMessage id="homeheader.select-room" />
                   </a>
-                </div>
+                </div> */}
               </div>
               <div className="child-content">
                 <div>
@@ -187,14 +187,14 @@ class HomeHeader extends Component {
         {this.props.isShowBanner === true && (
           <div className="home-header-banner">
             <div className="content-up position-relative">
-              <div className="position-absolute banner-text">
+              {/* <div className="position-absolute banner-text">
                 <div className="title1">
                   <FormattedMessage id="banner.title1" />
                 </div>
-                {/* <div className="title2">
+                <div className="title2">
                   <FormattedMessage id="banner.title2" />
-                </div> */}
-              </div>
+                </div>
+              </div> */}
               <div
                 className="search"
                 onClick={() => this.handleClickShowHomeMenuSearchSpecialty()}
